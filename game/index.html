@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Clash — a duel of elemental cards</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">EMBER CLASH</div>
+    <div class="tagline">A duel of elemental cards</div>
+    <div class="stats">
+      <span id="stat-turn">Turn 1</span>
+      <span id="stat-score">Damage dealt: 0</span>
+      <span id="stat-best">Best: —</span>
+    </div>
+  </header>
+
+  <main id="table">
+    <!-- Opponent: the Cinder Warden -->
+    <section id="foe-zone" aria-label="Opponent">
+      <div class="fighter foe">
+        <div class="portrait foe-portrait">W</div>
+        <div class="fighter-info">
+          <div class="fighter-name">Cinder Warden <span class="fighter-role">Rival Duelist</span></div>
+          <div class="lifebar"><div class="lifefill foe-life" id="foe-life-fill"></div><span class="lifetext" id="foe-life-text">30 / 30</span></div>
+          <div class="subline"><span id="foe-shield">Shield 0</span> · <span id="foe-deck">Deck 21</span> · <span id="foe-hand-count">Hand 5</span></div>
+        </div>
+      </div>
+      <div id="foe-hand" class="hand hand-back" aria-label="Opponent hand"></div>
+    </section>
+
+    <!-- Middle: battle log + end turn -->
+    <section id="mid">
+      <div id="log" aria-live="polite"></div>
+      <button id="end-turn" type="button">End Turn&nbsp;&nbsp;[Space]</button>
+      <div id="hint">Click a card or press 1–9 to play it · R restarts · Esc returns to title</div>
+    </section>
+
+    <!-- Player -->
+    <section id="player-zone" aria-label="Player">
+      <div id="player-hand" class="hand hand-face" aria-label="Your hand"></div>
+      <div class="fighter you">
+        <div class="portrait you-portrait">Y</div>
+        <div class="fighter-info">
+          <div class="fighter-name">You <span class="fighter-role">Ember Duelist</span></div>
+          <div class="lifebar"><div class="lifefill you-life" id="you-life-fill"></div><span class="lifetext" id="you-life-text">30 / 30</span></div>
+          <div class="subline"><span id="you-shield">Shield 0</span> · <span id="you-ember">Embers 1 / 1</span> · <span id="you-deck">Deck 21</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Title / win / loss overlay -->
+  <div id="overlay" class="hidden">
+    <div id="overlay-card">
+      <div id="overlay-kicker"></div>
+      <h1 id="overlay-title"></h1>
+      <p id="overlay-text"></p>
+      <div id="overlay-stats"></div>
+      <button id="overlay-button" type="button"></button>
+      <div id="overlay-foot"></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
